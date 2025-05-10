@@ -19,19 +19,21 @@ services:
   consumer1:
     build:
       context: ./consumers
-    command: ["python", "consumer-1.py"]
+    command: ["python", "-u", "consumer-1.py"]
     depends_on:
       - kafka1
       - kafka2
+      - minio
     restart: on-failure
 
   consumer2:
     build:
       context: ./consumers
-    command: ["python", "consumer-2.py"]
+    command: ["python", "-u", "consumer-2.py"]
     depends_on:
       - kafka1
       - kafka2
+      - minio
     restart: on-failure
 
 volumes:

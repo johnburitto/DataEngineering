@@ -33,8 +33,6 @@ if __name__ == '__main__':
         
             producer.send('Topic1', row)
             producer.send('Topic2', row)
-            
-            time.sleep(1)  # затримка для демонстрації
 
     producer.flush()
     producer.close()
