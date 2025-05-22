@@ -5,7 +5,7 @@ from pyspark.sql.functions import col, avg, count, date_format, desc, from_unixt
 
 
 def save_to_disc(path, data):
-    data.write.csv(f"{path}", header=True)
+    data.write.csv(f"{path}", header=True, mode='overwrite')
 
 def average_trip_duration(data):
     avg_trip_duration = data.withColumn("date", date_format("start_time", "yyyy-MM-dd")) \
